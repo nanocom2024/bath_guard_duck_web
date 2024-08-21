@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { getUserToken } from "@/myFirebase";
-import {useEffect} from "react";
 import useFCM from "@/utils/hooks/useFCM";
 
 export default function Home() {
