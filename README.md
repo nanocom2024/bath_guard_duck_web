@@ -1,8 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 実行手順
 
-## Getting Started
+### 1. .envファイルの作成
 
-First, run the development server:
+適切な値を文字列として設定する。
+
+- `.env.development.local`
+```.env.development.local
+NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_FIREBASE_VAPID_KEY=
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+```
+
+- `.env.development.local`
+```.env.development.local
+NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_FIREBASE_VAPID_KEY=
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+```
+
+
+### 2. 各パラメータの設定
+
+各パラメータは、プロジェクトの設定→全般→Firebaseの初期化コードの`firebaseConfig`から取得する。
+![スクリーンショット 2024-08-24 161818.png](mdImage%2F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-08-24%20161818.png)
+
+![スクリーンショット 2024-08-24 162343.png](mdImage%2F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-08-24%20162343.png)
+
+![スクリーンショット 2024-08-24 162620.png](mdImage%2F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-08-24%20162620.png)
+
+また、`NEXT_PUBLIC_FIREBASE_VAPID_KEY`は、プロジェクトの設定→Cloud Messaging→ウェブプッシュ証明書の公開鍵をコピーして割り当てる。
+
+![スクリーンショット 2024-08-24 163139.png](mdImage%2F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-08-24%20163139.png)
+
+![スクリーンショット 2024-08-24 163441.png](mdImage%2F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-08-24%20163441.png)
+
+```.env.development.local
+NEXT_PUBLIC_FIREBASE_APP_ID="/* appId */"
+NEXT_PUBLIC_FIREBASE_VAPID_KEY="/* ウェブプッシュ証明書の公開鍵 */"
+NEXT_PUBLIC_FIREBASE_API_KEY="/* apiKey */"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="/* authDomain */"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="/* projectId */"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="/* storageBucket */"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="/* messagingSenderId */"
+```
+
+### 3. 開発サーバーの起動
 
 ```bash
 npm run dev
@@ -14,23 +64,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. ブラウザを開く
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[http://localhost:3000](http://localhost:3000) を開いて確認する。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

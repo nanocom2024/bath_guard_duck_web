@@ -10,8 +10,8 @@ export async function POST(request: NextRequest) {
 }
 
 
-// export async function GET(request: { url: string | URL }) {
-//   const { searchParams } = new URL(request.url)
-//   console.log("GET request", searchParams.get("name"))
-//   return new Response(JSON.stringify({ message: "Hello World" }))
-// }
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url)
+  console.log("GET request", searchParams.get("name"))
+  return new Response(JSON.stringify({ message: "Hello World" }))
+}
