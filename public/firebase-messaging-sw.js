@@ -10,8 +10,9 @@ const firebaseConfig = {
     storageBucket: "bathguardduck.appspot.com",
     messagingSenderId: "541742638673",
     appId: "1:541742638673:web:a3e681348e0ae1926fba70",
-    measurementId: "G-6N151G1YXV"
+    // measurementId: "G-6N151G1YXV"
 };
+
 // eslint-disable-next-line no-undef
 firebase.initializeApp(firebaseConfig);
 // eslint-disable-next-line no-undef
