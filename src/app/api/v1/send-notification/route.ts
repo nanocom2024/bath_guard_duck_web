@@ -1,11 +1,9 @@
 // /api/v1/send-notification
-
 import { NextRequest, NextResponse } from "next/server";
 import { getMessaging } from "firebase-admin/messaging";
-import {messaging} from "firebase-admin";
-// import TokenMessage = messaging.TokenMessage;
 import admin from "firebase-admin";
 import serviceAccount from "@/../serviceAccountKey.json";
+import TokenMessage = admin.messaging.TokenMessage;
 
 if (admin.apps.length === 0) {
   admin.initializeApp({
@@ -14,32 +12,30 @@ if (admin.apps.length === 0) {
 }
 
 export async function POST(request: NextRequest) {
-
   //bodyからデータを取得
   const body = await request.json();
   const nowState: string = body.state;
+  const token: string = body.token; //FCMトークン
 
   console.log(`nowState: ${nowState}`);
 
-  //仮のFCMトークン
-  const myFCMToken: string = "cH1qo-PyrJQV6_2fPC3FKA:APA91bFXBizbhYPyW8RF6n5R2PI3HLh36nGyNguJW4nqQYwMIzIIKjffKik5ERn3hkHGE_VoCL7Fu9YrgE5ephBv-_pirYr3eeZA_IiscUd88xZedMqbXFkpV4WbUkW-gWoKI2Gib8lq";
-
-  //FCMトークンに通知を送信
-  const messaging = getMessaging();
-  try {
-    const mesRes = await messaging.send({
+  const newMes: TokenMessage = {
       notification: {
         title: 'ぬ',
         body: 'ほーん'
       },
-      token: myFCMToken
-    });
+      token: token
+    }
+
+  //FCMトークンに通知を送信
+  const messaging = getMessaging();
+  try {
+    const mesRes = await messaging.send(newMes);
     console.log("mesRes: " + mesRes);
   } catch (error) {
     console.log("myError: " + error);
   }
 
-  // return new Response(JSON.stringify({ message: `Notification(${body.state}) has been sent.` }))
   return NextResponse.json({ message: `Notification(${body.state}) has been sent.` });
 }
 
