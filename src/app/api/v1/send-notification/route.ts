@@ -1,12 +1,13 @@
 // /api/v1/send-notification
-import {NextRequest} from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   //bodyからデータを取得
   const body = await request.json();
   console.log(body);
 
-  return new Response(JSON.stringify({ message: `Notification(${body.state}) has been sent.` }))
+  // return new Response(JSON.stringify({ message: `Notification(${body.state}) has been sent.` }))
+  return NextResponse.json({ message: `Notification(${body.state}) has been sent.` });
 }
 
 
