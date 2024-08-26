@@ -1,5 +1,6 @@
 // /api/v1/send-notification
-import { NextRequest } from "next/server";
+
+import { NextRequest, NextResponse } from "next/server";
 import { getMessaging } from "firebase-admin/messaging";
 import {messaging} from "firebase-admin";
 // import TokenMessage = messaging.TokenMessage;
@@ -38,7 +39,8 @@ export async function POST(request: NextRequest) {
     console.log("myError: " + error);
   }
 
-  return new Response(JSON.stringify({ message: `Notification(${body.state}) has been sent.` }))
+  // return new Response(JSON.stringify({ message: `Notification(${body.state}) has been sent.` }))
+  return NextResponse.json({ message: `Notification(${body.state}) has been sent.` });
 }
 
 

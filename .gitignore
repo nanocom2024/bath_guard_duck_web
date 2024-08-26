@@ -39,3 +39,5 @@ certificates
 
 #firebase
 serviceAccountKey.json
+.vercel
+.env*.local
