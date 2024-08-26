@@ -5,6 +5,7 @@ import { MessagePayload, onMessage } from "firebase/messaging";
 import { toast } from "react-toastify";
 
 const useFCM = () => {
+  //FCMトークンを取得
   const fcmToken = useFCMToken();
   const [messages, setMessages] = useState<MessagePayload[]>([]);
   useEffect(() => {

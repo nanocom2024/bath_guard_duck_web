@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "firebase": "^10.13.0",
-    "next": "14.2.5",
+    "firebase-admin": "^12.3.1",
+    "next": "^14.2.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "vercel": "^37.1.1"
   },
   "devDependencies": {
     "@types/node": "^20",
