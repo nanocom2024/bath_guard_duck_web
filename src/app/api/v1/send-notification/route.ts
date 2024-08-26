@@ -5,6 +5,7 @@ import admin from "firebase-admin";
 import serviceAccount from "@/../serviceAccountKey.json";
 import TokenMessage = admin.messaging.TokenMessage;
 
+//二度初期化されるのを防ぐための処理
 if (admin.apps.length === 0) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),

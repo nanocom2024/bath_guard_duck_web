@@ -52,7 +52,28 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="/* storageBucket */"
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="/* messagingSenderId */"
 ```
 
-### 3. 開発サーバーの起動
+### 3. ルートに`serviceAccountKey.json`を追加する
+
+プロジェクトの設定→サービスアカウント→新しい秘密鍵の生成 をクリックして、
+jsonファイルをダウンロードし、`serviceAccountKey.json`に改名して、ルートに配置する。
+
+- `json:serviceAccountKey.json`
+```json:serviceAccountKey.json
+{
+    "type": "service_account",
+    "project_id": "/* projectId */",
+    "private_key_id": "/* privateKeyId */",
+    "private_key": "/* privateKey */",
+    "client_email": "/* clientEmail */",
+    "client_id": "/* clientId */",
+    "auth_uri": "/* authUri */",
+    "token_uri": "/* tokenUri */",
+    "auth_provider_x509_cert_url": "/* authProviderX509CertUrl */",
+    "client_x509_cert_url": "/* clientX509CertUrl */"
+}
+```
+
+### 4. 開発サーバーの起動
 
 ```bash
 npm run dev
@@ -64,7 +85,7 @@ pnpm dev
 bun dev
 ```
 
-### 4. ブラウザを開く
+### 5. ブラウザを開く
 
 [http://localhost:3000](http://localhost:3000) を開いて確認する。
 
