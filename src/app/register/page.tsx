@@ -2,8 +2,15 @@
 
 import { useState } from 'react';
 import { auth } from '../../utils/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useRouter } from 'next/navigation'; // next/navigation から useRouter をインポート
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // アカウント作成用
+import { useRouter } from 'next/navigation'; // 画面遷移用
+
+/* -----------------------------
+
+アカウント登録ページです。
+Firebase Authenticationを利用しています。
+
+-------------------------------- */ 
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -12,8 +19,8 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      router.push('/login'); // 登録後にログインページにリダイレクト
+      await createUserWithEmailAndPassword(auth, email, password); // アカウント作成
+      router.push('/login'); // 登録後にログインページへリダイレクト
     } catch (error) {
       console.error("Registration failed:", error);
       alert("Registration failed. Please try again.");

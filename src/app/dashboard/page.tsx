@@ -1,17 +1,24 @@
 "use client";
 import Image from "next/image";
 import styles from "../page.module.css";
-import useFCM from "@/utils/hooks/useFCM";
-import { getMessaging, onMessage } from "firebase/messaging";
-import { NoticeMes } from "@/app/NoticeMes";
+import useFCM from "@/utils/hooks/useFCM"; // 通知送信用？
+import { getMessaging, onMessage } from "firebase/messaging"; // 通知送信用？
+import { NoticeMes } from "@/app/NoticeMes"; // 通知送信用？
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // `next/navigation` を使用
-import { auth } from '../../utils/firebase'; // Firebase の設定ファイルのパス
-import { onAuthStateChanged, User } from 'firebase/auth';
+import { useRouter } from 'next/navigation'; // 画面遷移用
+import { auth } from '../../utils/firebase'; // farebaseの情報
+import { onAuthStateChanged, User } from 'firebase/auth'; // 認証確認用
+
+/* -----------------------------
+
+ログイン後に表示されるdashboardページです。
+認証ができていないとログイン画面へリダイレクトします。
+
+-------------------------------- */ 
 
 
-export default function Home() {
+export default function Dashboard() {
   const { messages, fcmToken } = useFCM();
   const [user, setUser] = useState<User | null>(null); // ユーザーの状態
   const router = useRouter(); // ルーターのフック
