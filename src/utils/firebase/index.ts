@@ -2,6 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { type FirebaseOptions, initializeApp } from "firebase/app";
 import { getMessaging } from "firebase/messaging";
+import { getAuth } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,5 +20,8 @@ const firebaseConfig: FirebaseOptions = {
 const firebaseapp = initializeApp(firebaseConfig);
 
 export const messaging = () => getMessaging(firebaseapp);
+
+// Firebase Authenticationのauthオブジェクトを取得
+export const auth = getAuth(firebaseapp);
 
 export default firebaseapp;

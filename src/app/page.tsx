@@ -1,29 +1,15 @@
-"use client";
-import Image from "next/image";
-import styles from "./page.module.css";
-import useFCM from "@/utils/hooks/useFCM";
-import { getMessaging, onMessage } from "firebase/messaging";
-import { NoticeMes } from "@/app/NoticeMes";
+"use client"; // クライアントコンポーネントとして指定
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function Home() {
-  const { messages, fcmToken } = useFCM();
+export default function HomePage() {
+  const router = useRouter();
 
-  const messaging = getMessaging();
-  onMessage(messaging, (payload) => {
-    console.log('Message received. ', payload);
-  });
+  useEffect(() => {
+    // ログインページにリダイレクト
+    router.push('/login');
+  }, [router]);
 
-  return (
-    <main className={styles.main}>
-      <NoticeMes />
-      <p>FCM Token: {fcmToken}</p>
-      <h1> 子供用ダック </h1>
-      <Image
-        src={"/images/duck.png"}
-        alt={"duck"}
-        width={300}
-        height={200}/>
-    </main>
-  );
+  return null; // このコンポーネントは何も表示しない
 }
