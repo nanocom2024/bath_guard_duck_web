@@ -2,9 +2,16 @@
 
 import { useState } from 'react';
 import { auth } from '../../utils/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useRouter } from 'next/navigation'; // next/navigation から useRouter をインポート
-import Link from 'next/link'; // Link コンポーネントをインポート
+import { signInWithEmailAndPassword } from 'firebase/auth'; // 認証用
+import { useRouter } from 'next/navigation'; // 画面遷移用
+import Link from 'next/link'; // Link コンポーネント
+
+/* -----------------------------
+
+ログインページです。
+Firebase Authenticationを利用しています。
+
+-------------------------------- */ 
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -13,8 +20,8 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      router.push('/dashboard'); // ログイン後にダッシュボードにリダイレクト
+      await signInWithEmailAndPassword(auth, email, password); // 認証
+      router.push('/dashboard'); // ログイン後にダッシュボードへリダイレクト
     } catch (error) {
       console.error("Login failed:", error);
       alert("Login failed. Please check your email and password.");
