@@ -3,8 +3,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../utils/firebase'; // Firebaseの設定ファイルをインポート
 
 // トークンを保存するためのカスタムフック
-export function useSaveToken() {
-  const [token, setToken] = useState<string | null>(null);
+export function useSaveToken(token: string | null) {
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
@@ -36,9 +35,9 @@ export function useSaveToken() {
     };
 
     saveTokenForUser();
-  }, [token]); // トークンが変更されたときにのみ実行される
+  });
 
-  return { setToken, isSaving, error };
+  return { isSaving, error };
 }
 
 export default useSaveToken;

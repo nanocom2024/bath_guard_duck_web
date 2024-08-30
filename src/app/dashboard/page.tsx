@@ -21,10 +21,11 @@ import useSaveToken from '@/utils/hooks/useSaveToken';
 
 
 export default function Dashboard() {
-  const { messages, fcmToken } = useFCM();
-  const { setToken, isSaving, error } = useSaveToken();
   const [user, setUser] = useState<User | null>(null); // ユーザーの状態
   const router = useRouter(); // ルーターのフック
+
+  const { messages, fcmToken } = useFCM();
+  const {isSaving, error } = useSaveToken(fcmToken);
 
   useEffect(() => {
     // ユーザーの認証状態を監視
@@ -45,23 +46,11 @@ export default function Dashboard() {
     console.log('Message received. ', payload);
   });
 
-  const handleSaveToken = () => {
-    const token = 'exampleToken123'; // 保存したいトークン
-    setToken(token); // フックにトークンを設定して保存をトリガー
-  };
-
   return (
     <main className={styles.main}>
       <NoticeMes />
       <p>FCM Token: {fcmToken}</p>
       <h1> 子供用ダック </h1>
-      <div>
-        <button onClick={handleSaveToken} disabled={isSaving}>
-          Save Token
-        </button>
-        {isSaving && <p>Saving...</p>}
-        {error && <p>Error: {error.message}</p>}
-      </div>
       <Image
         src={"/images/duck.png"}
         alt={"duck"}
