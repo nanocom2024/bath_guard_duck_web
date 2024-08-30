@@ -1,9 +1,12 @@
 // /api/v1/send-notification
 import { NextRequest, NextResponse } from "next/server";
 import { getMessaging } from "firebase-admin/messaging";
-import admin from "firebase-admin";
+import admin, {firestore} from "firebase-admin";
 import serviceAccount from "@/../serviceAccountKey.json";
 import TokenMessage = admin.messaging.TokenMessage;
+import { getFirestore } from "firebase-admin/firestore";
+import QuerySnapshot = firestore.QuerySnapshot;
+import QueryDocumentSnapshot = firestore.QueryDocumentSnapshot;
 
 //二度初期化されるのを防ぐための処理
 if (admin.apps.length === 0) {
@@ -12,21 +15,37 @@ if (admin.apps.length === 0) {
   });
 }
 
+const db = getFirestore();
+
 export async function POST(request: NextRequest) {
   //bodyからデータを取得
   const body = await request.json();
-  const nowState: string = body.state;
-  const token: string = body.token; //FCMトークン
+  const state: string = body.state;
+  const email: string = body.email;
 
-  console.log(`nowState: ${nowState}`);
+  console.log(`email: ${email}`);
+
+  //emailをユーザのFCMトークンをDBから取得
+  const usersRef = db.collection('users');
+  //snapshotを一つだけ取得
+  const snapshot = await usersRef.where('email', '==', email).get();
+  const userData = snapshot.docs[0];
+  //登録されているメールアドレスがdbに存在しないとき
+  if (userData === undefined) {
+    console.log("メールアドレスが見つかりませんでした。");
+    return NextResponse.json({ message: `メールアドレスが見つかりませんでした。` });
+  }
+  const token = userData.data().token;
+  console.log(`token: ${token}`);
+
 
   const newMes: TokenMessage = {
-      notification: {
-        title: 'ぬ',
-        body: 'ほーん'
-      },
-      token: token
-    }
+    notification: {
+      title: 'ぬ',
+      body: 'ほーん'
+    },
+    token: token
+  }
 
   //FCMトークンに通知を送信
   const messaging = getMessaging();
@@ -37,9 +56,8 @@ export async function POST(request: NextRequest) {
     console.log("myError: " + error);
   }
 
-  return NextResponse.json({ message: `Notification(${body.state}) has been sent.` });
+  return NextResponse.json({ message: `通知(${body.state})を送信しました。` });
 }
-
 
 // export async function GET(request: NextRequest) {
 //   const { searchParams } = new URL(request.url)
