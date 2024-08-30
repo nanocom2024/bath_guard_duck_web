@@ -14,12 +14,12 @@ export function useSaveToken() {
         const user = auth.currentUser; // 現在ログインしているユーザーを取得
         if (user) {
           const userId = user.uid; // ユーザーIDを取得
-
+          const email = user.email; // emailを取得
           try {
             setIsSaving(true);
             // FirestoreのusersコレクションにユーザーIDをドキュメントIDとしてトークンを保存
             await setDoc(doc(db, 'users', userId), {
-              token: token,
+              email: email, token: token,
             });
             console.log('Token saved successfully');
           } catch (error: unknown) {

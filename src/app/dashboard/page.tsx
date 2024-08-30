@@ -55,6 +55,13 @@ export default function Dashboard() {
       <NoticeMes />
       <p>FCM Token: {fcmToken}</p>
       <h1> 子供用ダック </h1>
+      <div>
+        <button onClick={handleSaveToken} disabled={isSaving}>
+          Save Token
+        </button>
+        {isSaving && <p>Saving...</p>}
+        {error && <p>Error: {error.message}</p>}
+      </div>
       <Image
         src={"/images/duck.png"}
         alt={"duck"}
