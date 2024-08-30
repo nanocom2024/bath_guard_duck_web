@@ -41,11 +41,6 @@ export default function Dashboard() {
     return () => unsubscribe();
   }, [router]);
 
-  const messaging = getMessaging();
-  onMessage(messaging, (payload) => {
-    console.log('Message received. ', payload);
-  });
-
   return (
     <main className={styles.main}>
       <NoticeMes />

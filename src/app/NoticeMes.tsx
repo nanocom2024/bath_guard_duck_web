@@ -8,6 +8,7 @@ export const NoticeMes = () => {
   onMessage(messaging, (payload) => {
     console.log('Message received. ', payload);
     setPTag(<p style={{color: "red", fontSize: "40px"}}>通知を検知！</p>);
+    console.log(pTag);
   });
 
   return (
