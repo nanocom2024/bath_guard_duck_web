@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
-import { auth, db } from '../../utils/firebase'; // Firebaseの設定ファイルをインポート
+import { auth, db } from '../firebase'; // Firebaseの設定ファイルをインポート
 
 // トークンを保存するためのカスタムフック
 export function useSaveToken(token: string | null) {

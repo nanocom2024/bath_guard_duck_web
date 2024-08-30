@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { auth } from '../../utils/firebase'; // Firebaseの設定ファイルをインポート
+import { auth } from '../firebase'; // Firebaseの設定ファイルをインポート
 import { useRouter } from 'next/navigation'; // 画面遷移用
 import { onAuthStateChanged, User } from 'firebase/auth'; // 認証確認用
 
