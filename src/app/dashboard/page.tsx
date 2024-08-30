@@ -10,6 +10,8 @@ import { useRouter } from 'next/navigation'; // 画面遷移用
 import { auth } from '../../utils/firebase'; // farebaseの情報
 import { onAuthStateChanged, User } from 'firebase/auth'; // 認証確認用
 
+import useSaveToken from '@/utils/hooks/useSaveToken';
+
 /* -----------------------------
 
 ログイン後に表示されるdashboardページです。
@@ -20,13 +22,9 @@ import { onAuthStateChanged, User } from 'firebase/auth'; // 認証確認用
 
 export default function Dashboard() {
   const { messages, fcmToken } = useFCM();
+  const { setToken, isSaving, error } = useSaveToken();
   const [user, setUser] = useState<User | null>(null); // ユーザーの状態
   const router = useRouter(); // ルーターのフック
-
-  const messaging = getMessaging();
-  onMessage(messaging, (payload) => {
-    console.log('Message received. ', payload);
-  });
 
   useEffect(() => {
     // ユーザーの認証状態を監視
@@ -41,6 +39,16 @@ export default function Dashboard() {
     // クリーンアップ
     return () => unsubscribe();
   }, [router]);
+
+  const messaging = getMessaging();
+  onMessage(messaging, (payload) => {
+    console.log('Message received. ', payload);
+  });
+
+  const handleSaveToken = () => {
+    const token = 'exampleToken123'; // 保存したいトークン
+    setToken(token); // フックにトークンを設定して保存をトリガー
+  };
 
   return (
     <main className={styles.main}>
