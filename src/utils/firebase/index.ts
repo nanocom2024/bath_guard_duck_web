@@ -2,7 +2,10 @@
 // Import the functions you need from the SDKs you need
 import { type FirebaseOptions, initializeApp } from "firebase/app";
 import { getMessaging } from "firebase/messaging";
-import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth'; // ログイン用
+import { getFirestore } from 'firebase/firestore'; // DB用
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,8 +23,7 @@ const firebaseConfig: FirebaseOptions = {
 const firebaseapp = initializeApp(firebaseConfig);
 
 export const messaging = () => getMessaging(firebaseapp);
-
-// Firebase Authenticationのauthオブジェクトを取得
 export const auth = getAuth(firebaseapp);
+export const db = getFirestore(firebaseapp);
 
 export default firebaseapp;
