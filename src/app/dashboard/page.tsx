@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import styles from "../page.module.css";
+// import styles from "../page.module.css";
 import useFCM from "@/utils/hooks/useFCM"; // 通知送信用？
-import { getMessaging, onMessage } from "firebase/messaging"; // 通知送信用？
-import { NoticeMes } from "@/app/NoticeMes"; // 通知送信用？
+// import { getMessaging, onMessage } from "firebase/messaging"; // 通知送信用？
+// import { NoticeMes } from "@/app/NoticeMes"; // 通知送信用？
 
 import useSaveToken from '@/utils/hooks/useSaveToken'; // Token保存用
-import useAuthCheck from '@/utils/hooks/useAuthCheck'; // 認証確認用
+import useAuthCheck from '@/utils/hooks/useAuthCheck';
 
 /* -----------------------------
 
@@ -15,15 +15,18 @@ import useAuthCheck from '@/utils/hooks/useAuthCheck'; // 認証確認用
 
 -------------------------------- */ 
 
-
 export default function Dashboard() {
-  const { messages, fcmToken } = useFCM();
+  let { messages, fcmToken } = useFCM();
   useSaveToken(fcmToken); // tokenを保存
   const user = useAuthCheck(); // 認証情報のcheck
 
+  if (fcmToken == null) {
+    fcmToken = "null";
+  }
+
   return (
-    <main className={styles.main}>
-      <NoticeMes />
+    <>
+      {/*<NoticeMes />*/}
       <p>FCM Token: {fcmToken}</p>
       <p>{user?.email}としてログイン中</p>
       <h1> 子供用ダック </h1>
@@ -32,6 +35,6 @@ export default function Dashboard() {
         alt={"duck"}
         width={300}
         height={200}/>
-    </main>
+    </>
   );
 }

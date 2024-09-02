@@ -15,13 +15,18 @@ if (admin.apps.length === 0) {
   });
 }
 
+
 const db = getFirestore();
 
 export async function POST(request: NextRequest) {
   //bodyからデータを取得
   const body = await request.json();
   const state: string = body.state;
-  const email: string = body.email;
+  let email: string = body.email;
+
+  //emailに含まれる%40を@に変換
+  const emailArray = email.split('%40');
+  email = emailArray.join('@');
 
   console.log(`email: ${email}`);
 
