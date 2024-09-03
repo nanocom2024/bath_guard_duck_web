@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
-// import styles from "../page.module.css";
-import useFCM from "@/utils/hooks/useFCM"; // 通知送信用？
-// import { getMessaging, onMessage } from "firebase/messaging"; // 通知送信用？
-// import { NoticeMes } from "@/app/NoticeMes"; // 通知送信用？
+import useFCM from "@/utils/hooks/useFCM";
 
 import useSaveToken from '@/utils/hooks/useSaveToken'; // Token保存用
 import useAuthCheck from '@/utils/hooks/useAuthCheck';
+import NoticeMes from "@/utils/components/NoticeMes";
 
 /* -----------------------------
 
@@ -24,9 +22,11 @@ export default function Dashboard() {
     fcmToken = "null";
   }
 
+  //FCMTokenGetter
+
   return (
     <>
-      {/*<NoticeMes />*/}
+      <NoticeMes />
       <p>FCM Token: {fcmToken}</p>
       <p>{user?.email}としてログイン中</p>
       <h1> 子供用ダック </h1>
