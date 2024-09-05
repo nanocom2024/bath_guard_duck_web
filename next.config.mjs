@@ -13,7 +13,7 @@ const nextConfig = {
         unoptimized: true,
     },
     ...pwaConfig,
-    reactStrictMode: true,
+    reactStrictMode: false,
 };
 
 export default nextConfig;

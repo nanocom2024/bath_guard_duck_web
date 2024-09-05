@@ -18,6 +18,8 @@ firebase.initializeApp(firebaseConfig);
 // eslint-disable-next-line no-undef
 const messaging = firebase.messaging();
 
+// TODO: これな気がする
+// TODO: 一回全部消してみること
 messaging.onBackgroundMessage((payload) => {
     console.log(
         "[firebase-messaging-sw.js] Received background message ",
