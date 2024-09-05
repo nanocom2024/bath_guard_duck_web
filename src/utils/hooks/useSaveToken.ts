@@ -35,7 +35,7 @@ export function useSaveToken(token: string | null) {
     };
 
     saveTokenForUser();
-  });
+  }, [token]);
 
   return { isSaving, error };
 }

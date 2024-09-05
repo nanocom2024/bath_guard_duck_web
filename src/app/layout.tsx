@@ -1,3 +1,5 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <head>
+      <link rel="manifest" href="/manifest.json"/>
+      <link rel="apple-touch-icon" href="/icon512_maskable.png"></link>
+      <meta name="theme-color" content="#b8e986"/>
+    </head>
+    <body className={inter.className}>{children}</body>
     </html>
   );
 }
