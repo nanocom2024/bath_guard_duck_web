@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import useFCM from "@/utils/hooks/useFCM";
-
-import useSaveToken from '@/utils/hooks/useSaveToken'; // Token保存用
-import useAuthCheck from '@/utils/hooks/useAuthCheck';
-import NoticeMes from "@/utils/components/NoticeMes";
+import NoticeMes from "@/utils/components/backend/NoticeMes";
+import {NoticeProvider} from "@/utils/providers/NoticeProvider";
+import MainContent from "@/app/dashboard/MainContent";
+import EmailViewer from "@/utils/components/backend/EmailViewer";
+import FCMTokenViewer from "@/utils/components/backend/FCMTokenViewer";
 
 /* -----------------------------
 
@@ -14,27 +14,17 @@ import NoticeMes from "@/utils/components/NoticeMes";
 -------------------------------- */ 
 
 export default function Dashboard() {
-  let { messages, fcmToken } = useFCM();
-  useSaveToken(fcmToken); // tokenを保存
-  const user = useAuthCheck(); // 認証情報のcheck
-
-  if (fcmToken == null) {
-    fcmToken = "null";
-  }
-
-  //FCMTokenGetter
 
   return (
-    <>
-      <NoticeMes />
-      <p>FCM Token: {fcmToken}</p>
-      <p>{user?.email}としてログイン中</p>
-      <h1> 子供用ダック </h1>
-      <Image
-        src={"/images/duck.png"}
-        alt={"duck"}
-        width={300}
-        height={200}/>
-    </>
+    <NoticeProvider>
+      {/* フロントエンド */}
+      <MainContent />
+
+      {/* バックエンド */}
+      <p>/以下デバッグ用(そのうち削除予定)/</p>
+      <NoticeMes/>
+      <FCMTokenViewer/>
+      <EmailViewer/>
+    </NoticeProvider>
   );
 }
