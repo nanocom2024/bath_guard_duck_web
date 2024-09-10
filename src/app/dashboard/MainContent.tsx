@@ -5,6 +5,7 @@ import Image from "next/image";
  * メインコンテンツ
  * */
 
+
 const MainContent = () => {
   console.log("MainContent");
 
