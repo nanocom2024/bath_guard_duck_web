@@ -1,4 +1,4 @@
-import useFCM from "@/utils/hooks/useFCM";
+import useFCM from "@/utils/hooks/fcm/useFCM";
 import useSaveToken from "@/utils/hooks/useSaveToken";
 
 

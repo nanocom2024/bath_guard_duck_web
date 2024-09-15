@@ -1,38 +1,19 @@
 "use client";
-import {useContext, useEffect, useState} from "react";
-import {NoticeContext} from "@/utils/providers/NoticeProvider";
-import {MessagePayload} from "firebase/messaging";
+import useGetLastMes from "@/utils/hooks/useGetLastMes";
+import useGetDuckState from "@/utils/hooks/useGetDuckState";
 
 const NoticeMes = () => {
   console.log("NoticeMes");
-  const [isNotified, setIsNotified] = useState(false);
-  const [mesTitle, setMesTitle] = useState("");
-  const [mesBody, setMesBody] = useState("");
+  const {mesTitle, mesBody} = useGetLastMes();
+  const {duckState} = useGetDuckState(mesTitle);
 
-  const { messages } = useContext(NoticeContext);
-
-  //メッセージが配列に追加されたら更新
-  useEffect(() => {
-    //メッセージがない場合は何もしない
-    if (messages.length <= 0) return;
-    //最新メッセージを取得
-    const lastMes = messages[messages.length - 1];
-    const mesTitle = lastMes.notification?.title ?? "";
-    const mesBody = lastMes.notification?.body ?? "";
-    //stateを更新
-    setMesTitle(() => mesTitle);
-    setMesBody(() => mesBody);
-
-    console.log("mesTitle", mesTitle);
-    console.log("mesBody", mesBody);
-  }, [messages]);
 
   return (
     <div>
       <h2>通知メッセージ</h2>
       <h3>タイトル: {mesTitle}</h3>
       <h3>本文: {mesBody}</h3>
-      <h3>状態: </h3>
+      <h3>状態: {duckState}</h3>
     </div>
   );
 
