@@ -13,10 +13,12 @@ if (admin.apps.length === 0) {
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
   });
 }
-
 const db = getFirestore();
 
 export async function POST(request: NextRequest) {
+  //ドメイン名を取得
+  const domain = request.nextUrl.origin;
+  console.log(domain + "/images/duck.png");
   //bodyからデータを取得
   const body = await request.json();
   const state: string = body.state;
@@ -36,13 +38,15 @@ export async function POST(request: NextRequest) {
   const mesTitle: string = mesData.title;
   const mesBody: string = mesData.body;
 
+  //通知内容を設定
   const newMes: TokenMessage = {
     notification: {
       title: mesTitle,
       body: mesBody,
+      imageUrl: domain + "/images/duck.png"
     },
-    token: token
-  }
+    token: token,
+  };
 
   //FCMトークンに通知を送信
   const messaging = getMessaging();
