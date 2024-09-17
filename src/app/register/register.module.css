@@ -1,0 +1,24 @@
+.container {
+    text-align: center;
+}
+
+.title {
+    font-size: 330%;
+}
+
+.input {
+    margin: 1%;
+    width: 65%;
+    font-size: 150%;
+}
+
+.button {
+    margin: 1%;
+    width: 30%;
+    font-size: 130%;
+}
+
+.link {
+    margin: 1%;
+    font-size: 130%;
+}
