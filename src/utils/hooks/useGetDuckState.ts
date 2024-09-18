@@ -1,14 +1,21 @@
 import {useEffect, useState} from "react";
 import {collection, getDocs, getFirestore, query, where} from "firebase/firestore";
+import {DuckState} from "@/utils/enum/DuckState";
 
-const useGetDuckState = (mesTitle: string) => {
-  const [duckState, setDuckState] = useState<string>("");
+/**
+ * 通知のタイトルから遷移したアヒルの状態をDBから取得するhooks
+ * */
+const useGetDuckState = (mesTitle: string): {duckState: DuckState} => {
+  const [duckState, setDuckState] = useState<DuckState>(DuckState.SLEEP);
 
   console.log(mesTitle);
 
   //dbから取得したデータをstateにセット
   useEffect(() => {
-    if (mesTitle === "") return;
+    for (let state in DuckState) {
+      if (state === mesTitle) return;
+    }
+
     //DBからコレクション取得
     const db = getFirestore();
     //クエリ作成
@@ -19,7 +26,7 @@ const useGetDuckState = (mesTitle: string) => {
     //データ取得
     getDocs(q).then((qs) => {
       qs.docs.forEach((doc) => {
-        const state: string = doc.data().state ?? "";
+        const state: DuckState = doc.data().state ?? DuckState.SLEEP;
         setDuckState(() => state);
       });
     });

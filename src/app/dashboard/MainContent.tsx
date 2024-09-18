@@ -1,57 +1,38 @@
 /** @jsxImportSource @emotion/react */
 "use client";
-import { css } from "@emotion/react";
-import Image from "next/image";
-import {Button} from "@mui/material";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-
+import useGetLastMes from "@/utils/hooks/useGetLastMes";
+import useGetDuckState from "@/utils/hooks/useGetDuckState";
+import ChildEnter from "@/app/dashboard/ChildEnter";
+import ChildDetection from "@/app/dashboard/ChildDetection";
+import Sleep from "@/app/dashboard/Sleep";
+import {DuckState} from "@/utils/enum/DuckState";
+import {useChangeComponent} from "@/utils/hooks/useChangeComponent";
 
 /**
  * メインコンテンツ
  * */
 
 const MainContent = () => {
-    console.log("MainContent");
+  console.log("MainContent");
+  //最新の通知からタイトルとボディを取得
+  const {mesTitle, mesBody} = useGetLastMes();
+  //タイトルをDBと照らし合わせてダックの状態を取得
+  const {duckState} = useGetDuckState(mesTitle);
+  //状態によって表示するコンポーネントを変更
+  const nowComponent = useChangeComponent(duckState);
 
-    // Define your styles
-    const containerStyle = css({
-        textAlign: "center",
-        backgroundColor: "#f0f0f0",
-        padding: "20px",
-    });
-
-    const paragraphStyle = css({
-        color: "blue",
-        fontSize: "20px",
-    });
-
-    const headingStyle = css({
-        fontFamily: "Arial, sans-serif",
-        color: "green",
-    });
-
-    const hrStyle = css({
-        margin: "20px 0",
-        borderColor: "gray",
-    });
-
-    return (
-        <div css={containerStyle}>
-            <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                <p css={paragraphStyle}>おふろみまもりだっく</p>
-            </Box>
-            <h1 css={headingStyle}>子供用ダック</h1>
-            <Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>
-            <Image
-                src={"/images/duck.png"}
-                alt={"duck"}
-                width={300}
-                height={200}
-            />
-        </div>
-    );
-};
+  return (
+    <>
+      {nowComponent}
+      {/*デバッグ用*/}
+      {/*<div>*/}
+      {/*  <h2>通知メッセージ</h2>*/}
+      {/*  <h3>タイトル: {mesTitle}</h3>*/}
+      {/*  <h3>本文: {mesBody}</h3>*/}
+      {/*  <h3>状態: {duckState}</h3>*/}
+      {/*</div>*/}
+    </>
+  );
+}
 
 export default MainContent;
