@@ -9,7 +9,11 @@ import Box from '@mui/material/Box';
 
 
 /**
- * メインコンテンツ
+ * ダックが入水して見守りを開始した状態
+ *
+ * お子様用ダック
+ * 見守り中です！
+ * お子様が浴槽に入水したことを検知してお知らせします。
  * */
 const ChildEnter = () => {
     console.log("ChildEnter");

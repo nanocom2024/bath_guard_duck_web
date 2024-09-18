@@ -9,7 +9,7 @@ import {DuckState} from "@/utils/enum/DuckState";
 import {useChangeComponent} from "@/utils/hooks/useChangeComponent";
 
 /**
- * メインコンテンツ
+ * 3つのコンポーネントを切り替えるコンポーネント
  * */
 
 const MainContent = () => {
