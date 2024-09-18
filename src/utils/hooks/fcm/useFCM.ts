@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useFCMToken from "./useFCMToken";
-import { messaging } from "../firebase";
+import { messaging } from "../../firebase";
 import { MessagePayload, onMessage } from "firebase/messaging";
 import { toast } from "react-toastify";
 

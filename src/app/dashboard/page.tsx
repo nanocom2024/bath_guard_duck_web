@@ -23,8 +23,8 @@ export default function Dashboard() {
       {/* バックエンド */}
       <p>/以下デバッグ用(そのうち削除予定)/</p>
       <NoticeMes/>
-      <FCMTokenViewer/>
-      <EmailViewer/>
+      {/*<FCMTokenViewer/>*/}
+      {/*<EmailViewer/>*/}
     </NoticeProvider>
   );
 }

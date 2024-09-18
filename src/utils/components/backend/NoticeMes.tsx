@@ -1,23 +1,25 @@
 "use client";
-import {useContext, useEffect, useState} from "react";
-import {NoticeContext} from "@/utils/providers/NoticeProvider";
+import useGetLastMes from "@/utils/hooks/useGetLastMes";
+import useGetDuckState from "@/utils/hooks/useGetDuckState";
 
 const NoticeMes = () => {
   console.log("NoticeMes");
-  const [isNotified, setIsNotified] = useState(false);
+  const {mesTitle, mesBody} = useGetLastMes();
+  const {duckState} = useGetDuckState(mesTitle);
 
-  const { messages } = useContext(NoticeContext);
 
-  //メッセージが配列に追加されたら更新
-  useEffect(() => {
-    if (messages.length > 0) {
-      setIsNotified(true);
-    }
-  }, [messages]);
+  return (
+    <div>
+      <h2>通知メッセージ</h2>
+      <h3>タイトル: {mesTitle}</h3>
+      <h3>本文: {mesBody}</h3>
+      <h3>状態: {duckState}</h3>
+    </div>
+  );
 
-  return isNotified ?
-    <p style={{color: "red", fontSize: "40px"}}>通知を検知！</p> :
-    <p>通知なし</p>;
+  // return isNotified ?
+  //   <p style={{color: "red", fontSize: "40px"}}>通知を検知！</p> :
+  //   <p>通知なし</p>;
 }
 
 export default NoticeMes;

@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from "react";
-import useFCM from "@/utils/hooks/useFCM";
+import useFCM from "@/utils/hooks/fcm/useFCM";
 import useSaveToken from "@/utils/hooks/useSaveToken";
 import {MessagePayload} from "firebase/messaging";
 
