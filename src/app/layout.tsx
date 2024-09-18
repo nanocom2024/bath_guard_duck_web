@@ -1,10 +1,10 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const zenMaru = Zen_Maru_Gothic({weight: '900', subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +23,7 @@ export default function RootLayout({
       <link rel="apple-touch-icon" href="/icon512_maskable.png"></link>
       <meta name="theme-color" content="#b8e986"/>
     </head>
-    <body className={inter.className}>{children}</body>
+    <body className={zenMaru.className}>{children}</body>
     </html>
   );
 }

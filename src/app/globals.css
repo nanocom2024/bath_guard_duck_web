@@ -1,5 +1,8 @@
 body {
-    background-color: white;
+    /* background-color: white; */
+    height: 1000px;
+    background: repeating-linear-gradient(90deg, #fbffd3, #fbffd3 15px, #fdfe8c 0, #fdfe8c 30px
+    );
     color: black;
 }
 
@@ -9,7 +12,7 @@ body {
     }
 
     body {
-        background-color: black;
+        background: black;
         color: white;
     }
 }
