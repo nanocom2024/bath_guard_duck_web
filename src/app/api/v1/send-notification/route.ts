@@ -46,8 +46,8 @@ export async function POST(request: NextRequest) {
 
   const newMes: TokenMessage = {
     notification: {
-      title: '二重送信バグ直った',
-      body: 'いえーい'
+      title: 'お子様の入水を検知しました！',
+      body: 'test1\ntest2\ntest3\ntest4\ntset5\ntest6\ntest7',
     },
     token: token
   }

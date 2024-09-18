@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getToken, isSupported } from "firebase/messaging";
-import { messaging } from "../firebase";
-import useNotificationPermission from "./useNotificationPermission";
+import { messaging } from "../../firebase";
+import useNotificationPermission from "../useNotificationPermission";
 
 const useFCMToken = () => {
   const permission = useNotificationPermission();
