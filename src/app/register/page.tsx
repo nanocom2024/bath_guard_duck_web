@@ -31,26 +31,26 @@ export default function Register() {
 
   return (
     <div className={classes.container}>
-      <h1 className={classes.title}>Register</h1>
+      <h1 className={classes.title}>しんきとうろく</h1>
       <input className={classes.input}
         type="email"
-        placeholder="Email"
+        placeholder="メール"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <br />
       <input className={classes.input}
         type="password"
-        placeholder="Password"
+        placeholder="パスワード"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-      <button className={classes.button} onClick={handleRegister}>Register</button>
+      <button className={classes.button} onClick={handleRegister}>とうろく</button>
 
       <div className={classes.link}>
         <Link href="/login">
-            ログインページ
+            ろぐいん
         </Link>
       </div>
     </div>

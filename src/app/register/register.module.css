@@ -3,22 +3,29 @@
 }
 
 .title {
-    font-size: 330%;
+    font-size: 300%;
 }
 
 .input {
     margin: 1%;
-    width: 65%;
+    width: 70%;
     font-size: 150%;
+    border-radius: 30px;
 }
 
 .button {
     margin: 1%;
     width: 30%;
     font-size: 130%;
+    border-radius: 30px;
+    color: white;
+    background-color: rgb(254, 185, 46);
+    border: none;
 }
 
 .link {
     margin: 1%;
     font-size: 130%;
+    color: rgb(254, 185, 46);
+    text-decoration: none;
 }
