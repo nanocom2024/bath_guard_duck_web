@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { auth } from '../../utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // アカウント作成用
 import { useRouter } from 'next/navigation'; // 画面遷移用
+import Link from 'next/link'; // Link コンポーネント
+import classes from './register.module.css'; // css
 
 /* -----------------------------
 
@@ -28,21 +30,29 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <input
+    <div className={classes.container}>
+      <h1 className={classes.title}>しんきとうろく</h1>
+      <input className={classes.input}
         type="email"
-        placeholder="Email"
+        placeholder="メール"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <br />
+      <input className={classes.input}
         type="password"
-        placeholder="Password"
+        placeholder="パスワード"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleRegister}>Register</button>
+      <br />
+      <button className={classes.button} onClick={handleRegister}>とうろく</button>
+
+      <div className={classes.link}>
+        <Link href="/login">
+            ろぐいん
+        </Link>
+      </div>
     </div>
   );
 }

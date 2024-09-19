@@ -5,6 +5,7 @@ import { auth } from '../../utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth'; // 認証用
 import { useRouter } from 'next/navigation'; // 画面遷移用
 import Link from 'next/link'; // Link コンポーネント
+import classes from './login.module.css'; // css
 
 /* -----------------------------
 
@@ -29,26 +30,27 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <input
+    <div className={classes.container}>
+      <h1 className={classes.title}>ろぐいん</h1>
+      <input className={classes.input}
         type="email"
-        placeholder="Email"
+        placeholder="メール"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <br />
+      <input className={classes.input}
         type="password"
-        placeholder="Password"
+        placeholder="パスワード"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+      <br />
+      <button  className={classes.button} onClick={handleLogin}>ろぐいん</button>
 
-      <div>
-        <p>アカウント登録</p>
+      <div className={classes.link}>
         <Link href="/register">
-          <button>Register</button>
+          しんきとうろく
         </Link>
       </div>
     </div>
