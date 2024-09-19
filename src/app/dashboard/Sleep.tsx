@@ -22,18 +22,37 @@ const Sleep = () => {
     // Define your styles
     const containerStyle = css({
         textAlign: "center",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#FFFFFF",
         padding: "20px",
     });
 
+    const  headerStyle = css({
+        backgroundColor: "#FFFFFF",
+        padding: "10px",
+    });
+
     const paragraphStyle = css({
-        color: "blue",
+        color: "#636363",
         fontSize: "20px",
+    });
+
+    const pStyle = css({
+        color: "black",
+        fontSize: "30px",
+        margin: "0px"
+    });
+
+    const pStyle2 = css({
+        color: "black",
+        fontSize: "30px",
+        margin: "0px",
+        backgroundColor: "#FFFBDA"
     });
 
     const headingStyle = css({
         fontFamily: "Arial, sans-serif",
-        color: "green",
+        color: "black",
+        fontSize: "50px"
     });
 
     const hrStyle = css({
@@ -43,18 +62,21 @@ const Sleep = () => {
 
     return (
         <div css={containerStyle}>
+            <div css={headerStyle}>
             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                 <p css={paragraphStyle}>おふろみまもりだっく</p>
             </Box>
+            </div>
             <h1 css={headingStyle}>子供用ダック</h1>
-          <p>現在はSleepコンポーネントだよ</p>
-          <Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>
+            <p css={pStyle}>見守り中です！(Sleep)</p>
+            {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
             <Image
                 src={"/images/duck.png"}
                 alt={"duck"}
-                width={300}
-                height={200}
+                width={400}
+                height={300}
             />
+            <p css={pStyle2}>お子様が浴槽に入水したことを検知してお知らせします。</p>
         </div>
     );
 };
