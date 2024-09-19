@@ -48,7 +48,7 @@ const ChildEnter = () => {
         color: "black",
         fontSize: "30px",
         margin: "0px",
-        backgroundColor: "#FFFBDA",
+        backgroundColor: "#EFAA2E",
         borderRadius: "10px"
     });
 

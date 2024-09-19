@@ -22,13 +22,13 @@ const Sleep = () => {
     // Define your styles
     const containerStyle = css({
         textAlign: "center",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#C0F5F4",
         padding: "20px",
         borderRadius: "30px"
     });
 
     const  headerStyle = css({
-        backgroundColor: "rgb(254, 185, 46)",
+        backgroundColor: "#71F5F3",
         padding: "1px",
         margin: "-20px",
         borderRadius: "30px 30px 0px 0px"
@@ -49,7 +49,7 @@ const Sleep = () => {
         color: "black",
         fontSize: "30px",
         margin: "0px",
-        backgroundColor: "#FFFBDA",
+        backgroundColor: "#71F5F3",
         borderRadius: "10px"
     });
 
