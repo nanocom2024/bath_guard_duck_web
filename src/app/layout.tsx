@@ -1,6 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import type { Metadata } from "next";
+import Head from 'next/head';
 import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <link rel="manifest" href="/manifest.json"/>
       <link rel="apple-touch-icon" href="/icon512_maskable.png"></link>
       <meta name="theme-color" content="#b8e986"/>
+      <title>おふろみまもりだっく</title>
     </head>
     <body className={zenMaru.className}>{children}</body>
     </html>
