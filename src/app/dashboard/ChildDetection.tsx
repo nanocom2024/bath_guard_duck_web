@@ -22,13 +22,16 @@ const ChildDetection = () => {
     // Define your styles
     const containerStyle = css({
         textAlign: "center",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#FFE3E2",
         padding: "20px",
+        borderRadius: "30px"
     });
 
     const  headerStyle = css({
-        backgroundColor: "#FFFFFF",
-        padding: "10px",
+        backgroundColor: "#FFB7A5",
+        padding: "1px",
+        margin: "-20px",
+        borderRadius: "30px 30px 0px 0px"
     });
 
     const paragraphStyle = css({
@@ -46,11 +49,11 @@ const ChildDetection = () => {
         color: "black",
         fontSize: "30px",
         margin: "0px",
-        backgroundColor: "#FFFBDA"
+        backgroundColor: "#FFB7A5",
+        borderRadius: "10px"
     });
 
     const headingStyle = css({
-        fontFamily: "Arial, sans-serif",
         color: "black",
         fontSize: "50px"
     });
@@ -58,6 +61,10 @@ const ChildDetection = () => {
     const hrStyle = css({
         margin: "20px 0",
         borderColor: "gray",
+    });
+
+    const imageStyle = css({
+        // margin: "0% -40%",
     });
 
     return (
@@ -68,15 +75,18 @@ const ChildDetection = () => {
             </Box>
             </div>
             <h1 css={headingStyle}>子供用ダック</h1>
-            <p css={pStyle}>見守り中です！(ChildDetection)</p>
+            <p css={pStyle}>危険です！</p>
             {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
+            <div css={imageStyle}>
             <Image
                 src={"/images/duck.png"}
                 alt={"duck"}
-                width={400}
+                width={300}
                 height={300}
             />
-            <p css={pStyle2}>お子様が浴槽に入水したことを検知してお知らせします。</p>
+            </div>
+            <p css={pStyle2}>お子様の入水を検知しました！
+                急いで浴室を確認してください！！</p>
         </div>
     );
 };
