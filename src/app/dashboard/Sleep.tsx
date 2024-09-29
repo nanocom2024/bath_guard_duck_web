@@ -37,25 +37,28 @@ const Sleep = () => {
     const paragraphStyle = css({
         color: "#636363",
         fontSize: "20px",
+        letterSpacing: "0.3em"
     });
 
     const pStyle = css({
-        color: "black",
-        fontSize: "30px",
+        color: "#5f5f5f",
+        fontSize: "25px",
         margin: "0px"
     });
 
     const pStyle2 = css({
         color: "black",
-        fontSize: "30px",
+        fontSize: "20px",
         margin: "0px",
         backgroundColor: "#71F5F3",
-        borderRadius: "10px"
+        borderRadius: "0px",
     });
 
     const headingStyle = css({
         color: "black",
-        fontSize: "50px"
+        fontSize: "50px",
+        lineHeight: "1.4",
+        margin: "25px 0 0 0",
     });
 
     const hrStyle = css({
@@ -64,7 +67,7 @@ const Sleep = () => {
     });
 
     const ImageStyle = css({
-        margin: "40px 0",
+        margin: "30px 0",
     });
 
     return (
@@ -74,19 +77,18 @@ const Sleep = () => {
                 <p css={paragraphStyle}>おふろみまもりだっく</p>
             </Box>
             </div>
-            <h1 css={headingStyle}>子供用ダック</h1>
-            <p css={pStyle}>ダックおやすみ中</p>
+            <h1 css={headingStyle}>お子様ダック</h1>
+            <p css={pStyle}>おやすみ中です...</p>
             {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
             <div css={ImageStyle}>
             <Image
                 src={"/images/attention.png"}
                 alt={"duck"}
-                width={220}
-                height={220}
+                width={230}
+                height={230}
             />
             </div>
-            <p css={pStyle2}>ダックをお風呂に浮かべると
-                見守りを開始できます。</p>
+            <p css={pStyle2}>ダックをお風呂に浮かべると<br/>見守りを開始できます。</p>
         </div>
     );
 };

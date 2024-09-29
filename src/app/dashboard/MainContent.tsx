@@ -22,9 +22,9 @@ const MainContent = () => {
     <>
       {nowComponent}
       {/*デバッグ用*/}
-      <button onClick={() => setDuckState(() => DuckState.CHILD_ENTER)}>CHILD_ENTER</button>
-      <button onClick={() => setDuckState(() => DuckState.CHILD_DETECTION)}>CHILD_DETECTION</button>
-      <button onClick={() => setDuckState(() => DuckState.SLEEP)}>SLEEP</button>
+      {/*<button onClick={() => setDuckState(() => DuckState.CHILD_ENTER)}>CHILD_ENTER</button>*/}
+      {/*<button onClick={() => setDuckState(() => DuckState.CHILD_DETECTION)}>CHILD_DETECTION</button>*/}
+      {/*<button onClick={() => setDuckState(() => DuckState.SLEEP)}>SLEEP</button>*/}
 
       {/*<div>*/}
       {/*  <h2>通知メッセージ</h2>*/}
