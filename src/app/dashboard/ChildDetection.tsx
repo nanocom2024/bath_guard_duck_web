@@ -6,6 +6,7 @@ import {Button} from "@mui/material";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import DuckImage from "@/utils/components/frontend/DuckImage";
 
 
 /**
@@ -63,10 +64,6 @@ const ChildDetection = () => {
         borderColor: "gray",
     });
 
-    const imageStyle = css({
-        // margin: "0% -40%",
-    });
-
     return (
         <div css={containerStyle}>
             <div css={headerStyle}>
@@ -77,14 +74,7 @@ const ChildDetection = () => {
             <h1 css={headingStyle}>子供用ダック</h1>
             <p css={pStyle}>危険です！</p>
             {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
-            <div css={imageStyle}>
-            <Image
-                src={"/images/duck.png"}
-                alt={"duck"}
-                width={300}
-                height={300}
-            />
-            </div>
+            <DuckImage />
             <p css={pStyle2}>お子様の入水を検知しました！
                 急いで浴室を確認してください！！</p>
         </div>

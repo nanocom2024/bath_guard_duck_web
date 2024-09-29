@@ -6,6 +6,7 @@ import {Button} from "@mui/material";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import DuckImage from "@/utils/components/frontend/DuckImage";
 
 
 /**
@@ -77,12 +78,7 @@ const ChildEnter = () => {
             <p css={pStyle}>見守り中です！</p>
             {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
             <div css={imageStyle}>
-            <Image
-                src={"/images/duck.png"}
-                alt={"duck"}
-                width={300}
-                height={300}
-            />
+                <DuckImage />
             </div>
             <p css={pStyle2}>お子様が浴槽に入水したことを
                 検知してお知らせします。</p>
