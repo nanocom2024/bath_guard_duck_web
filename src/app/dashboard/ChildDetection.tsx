@@ -38,17 +38,18 @@ const ChildDetection = () => {
     const paragraphStyle = css({
         color: "#636363",
         fontSize: "20px",
+        letterSpacing: "0.3em"
     });
 
     const pStyle = css({
-        color: "black",
-        fontSize: "30px",
+        color: "#5f5f5f",
+        fontSize: "25px",
         margin: "0px"
     });
 
     const pStyle2 = css({
         color: "black",
-        fontSize: "30px",
+        fontSize: "20px",
         margin: "0px",
         backgroundColor: "#FFB7A5",
         borderRadius: "10px"
@@ -56,7 +57,9 @@ const ChildDetection = () => {
 
     const headingStyle = css({
         color: "black",
-        fontSize: "50px"
+        fontSize: "50px",
+        lineHeight: "1.4",
+        margin: "25px 0 0 0",
     });
 
     const hrStyle = css({
@@ -71,12 +74,11 @@ const ChildDetection = () => {
                 <p css={paragraphStyle}>おふろみまもりだっく</p>
             </Box>
             </div>
-            <h1 css={headingStyle}>子供用ダック</h1>
+            <h1 css={headingStyle}>お子様ダック</h1>
             <p css={pStyle}>危険です！</p>
             {/*<Button variant="contained" sx={{ backgroundColor: "#FFFFFF", color: "black" }}>Contained</Button>*/}
             <DuckImage />
-            <p css={pStyle2}>お子様の入水を検知しました！
-                急いで浴室を確認してください！！</p>
+            <p css={pStyle2}>お子様の入水を検知しました！<br/>急いで浴室を確認してください！</p>
         </div>
     );
 };
