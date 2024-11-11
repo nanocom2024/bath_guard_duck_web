@@ -17,9 +17,9 @@ export const useChangeComponent = (duckState: DuckState) => {
   } else if (duckState === DuckState.SLEEP) {
     return <Sleep/>;
   } else if (duckState === DuckState.SENIOR_ENTER) {
-    return <SeniorEnter/>
+    return <SeniorEnter/>;
   } else if (duckState === DuckState.SENIOR_DETECTION) {
-    return <SeniorDetection/>
+    return <SeniorDetection/>;
   }else {
     return <ChildEnter/>;
   }
