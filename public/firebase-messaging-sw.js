@@ -4,12 +4,12 @@ importScripts("https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/8.8.0/firebase-messaging.js");
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAeLkkug45n12jHuXbiejbdVnJfDY8PFnA",
-    authDomain: "bathguardduck.firebaseapp.com",
-    projectId: "bathguardduck",
-    storageBucket: "bathguardduck.appspot.com",
-    messagingSenderId: "541742638673",
-    appId: "1:541742638673:web:a3e681348e0ae1926fba70",
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
     // measurementId: "G-6N151G1YXV"
 };
 
